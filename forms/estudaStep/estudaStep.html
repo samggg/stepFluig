@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <script src="/portal/resources/js/jquery/jquery.js"></script>
+    <script src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script src="/style-guide/js/fluig-style-guide.min.js"></script>
+    <script src="/style-guide/js/fluig-forms.min.js"></script>
+    <script src="/style-guide/js/fluig-forms-plugins.min.js"></script>
+    <script src="/style-guide/js/fluig-forms-plugins-extra.min.js"></script>
+    <script src="estudaStep.js"></script>
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+        <form name="form" role="form">
+            <button type="button" class="btn btn-primary" onclick="openMultiStepModal()">Abrir Formulário</button>
+
+            <!-- 🔹 Conteúdo que será clonado no modal -->
+            <div id="multiStepFormContent" style="display:none;">
+                <!-- Indicadores de etapas -->
+                <ul id="stepIndicator" class="steps">
+                    <li class="step-item active step-icon-1" data-step="1">
+                        <span class="step-bullet"></span>
+                        <span class="step-label">Solicitação</span>
+                    </li>
+                    <li class="step-item step-icon-2" data-step="2">
+                        <span class="step-bullet"></span>
+                        <span class="step-label">Dados</span>
+                    </li>
+                    <li class="step-item step-icon-3" data-step="3">
+                        <span class="step-bullet"></span>
+                        <span class="step-label">Conclusão</span>
+                    </li>
+                </ul>
+
+                <!-- Formulário multi-step -->
+                <form id="multiStepForm">
+                    <div class="row step-content" id="step-1">
+                        <h2>Passo 1: Solicitação</h2>
+                        <div class="form-group col-md-6">
+                            <label for="campo1">Nome</label>
+                            <input type="text" class="form-control" name="campo1" id="campo1" required>
+                        </div>
+                    </div>
+
+                    <div class="row step-content" id="step-2" style="display:none;">
+                        <h2>Passo 2: Dados</h2>
+                        <div class="form-group col-md-6">
+                            <label for="campo2">Email</label>
+                            <input type="email" class="form-control" name="campo2" id="campo2" required>
+                        </div>
+                    </div>
+
+                    <div class="row step-content" id="step-3" style="display:none;">
+                        <h2>Passo 3: Conclusão</h2>
+                        <p>Revisar e finalizar o formulário.</p>
+                    </div>
+
+                    <!-- Botões -->
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default" id="prevButton" style="display:none;">Anterior</button>
+                        <button type="button" class="btn btn-primary" id="nextButton">Próximo</button>
+                        <button type="submit" class="btn btn-success" id="submitButton" style="display:none;">Finalizar</button>
+                    </div>
+                </form>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
